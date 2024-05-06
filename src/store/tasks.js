@@ -61,7 +61,6 @@ class TasksStore {
   }
 
   editPriority(editedPriority, id) {
-    console.log({ editedPriority, id });
     this.setAction(id, this.tasks, task => (task.priority = editedPriority));
   }
 

@@ -26,7 +26,6 @@ const renderTasks = tasks => {
 };
 
 const App = observer(() => {
-  console.log(TaskStore.tasks);
   return (
     <div className={Styles.container}>
       <h1>DigiExpress Nested TodoList</h1>
