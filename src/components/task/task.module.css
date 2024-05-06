@@ -1,0 +1,26 @@
+.container {
+  padding: 4px;
+  background-color: #bfd5ff;
+  border: 2px solid #5992ff;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.input-focus {
+  &:focus-within {
+    width: 100%;
+  }
+}
