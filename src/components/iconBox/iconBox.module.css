@@ -1,6 +1,7 @@
 .container {
   all: unset;
-  
+  cursor: pointer;
+
   border-radius: 8px;
 
   width: 48px;
