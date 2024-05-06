@@ -21,17 +21,23 @@ export const Task = ({
   onChange,
   value,
   onAddSubTask,
+  children,
   className,
 }) => {
   const [isOpen, setOpen] = useState(false);
 
+  const onAddSubTaskHandler = () => {
+    onAddSubTask();
+    setOpen(true);
+  };
+
   return (
-    <div className={classNames(Styles.container, className)} onClick={() => setOpen(prev => !prev)}>
+    <div className={classNames(Styles.container, className)}>
       <div className={Styles.wrapper}>
         <FontAwesomeIcon
           icon={isOpen ? faChevronDown : faChevronRight}
-          color='#001743'
           className={Styles['toggle-icon']}
+          onClick={() => setOpen(prev => !prev)}
         />
 
         <Input onChange={onChange} value={value} className={classNames(Styles['input-focus'])} />
@@ -40,11 +46,18 @@ export const Task = ({
           <IconBox icon={faAngleDoubleDown} onClick={onLowPriority} />
           <IconBox icon={faAngleDoubleUp} onClick={onHighPriority} />
           <IconBox icon={faTrashAlt} onClick={onDelete} />
-          <IconBox icon={faAdd} onClick={onAddSubTask} />
+          <IconBox icon={faAdd} onClick={onAddSubTaskHandler} />
         </div>
       </div>
 
-      <div>{/* Import list and close it */}</div>
+      <div
+        className={classNames(Styles['subtask'], {
+          [Styles['subtask__open']]: isOpen,
+          [Styles['subtask__close']]: !isOpen,
+        })}
+      >
+        {isOpen && children}
+      </div>
     </div>
   );
 };

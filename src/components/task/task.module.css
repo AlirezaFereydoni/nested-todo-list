@@ -17,10 +17,34 @@
   gap: 4px;
   align-items: center;
   margin-left: auto;
+  flex-shrink: 1.2;
 }
 
-.input-focus {
-  &:focus-within {
-    width: 100%;
-  }
+.toggle-icon {
+  color: #001743;
+  cursor: pointer;
+}
+
+.input-focus:focus-within {
+  width: 100%;
+}
+
+.subtask {
+  transition: all 0.5s ease;
+  width: calc(100% - 8px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-self: center;
+}
+
+.subtask__open {
+  padding: 4px;
+  height: max-content;
+}
+
+.subtask__close {
+  height: 0;
+  overflow: hidden;
 }
