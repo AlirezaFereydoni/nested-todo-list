@@ -15,7 +15,7 @@ const renderTasks = tasks => {
             onChange={e => TaskStore.editText(e.target.value, item.id)}
             onAddSubTask={() => TaskStore.addTask('', item.id)}
             onDelete={() => TaskStore.deleteTask(item.id)}
-            onHighPriority={() => TaskStore.editPriority(item.priority - 1, item.id)}
+            onHighPriority={() => TaskStore.editPriority(item.priority - 2, item.id)}
             onLowPriority={() => TaskStore.editPriority(item.priority + 2, item.id)}
           >
             {renderTasks(item.subTasks)}
